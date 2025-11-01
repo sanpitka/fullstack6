@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { newAnecdote } from '../reducers/anecdoteReducer'
 
 const AnecdoteForm = () => {
   const [content, setContent] = useState('')
@@ -7,10 +8,7 @@ const AnecdoteForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch({
-      type: 'NEW_ANECDOTE',
-      payload: { content }
-    })
+    dispatch(newAnecdote({ content }))
     setContent('')
   }
 

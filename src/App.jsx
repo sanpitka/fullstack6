@@ -1,12 +1,12 @@
 import AnecdoteForm from './components/AnecdoteForm'
 import Anecdotes from './components/Anecdotes'
-import VisibilityFilter from './components/VisibilityFilter'
+import Filter from './components/Filter'
 
 const App = () => {
   return (
     <div>
       <h2>Anecdotes</h2>
-      <VisibilityFilter />
+      <Filter />
       <Anecdotes />
       <h2>Create New</h2>
       <AnecdoteForm />
