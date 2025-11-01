@@ -1,8 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-const AnecdoteList = () => {
+const Anecdotes = () => {
   const dispatch = useDispatch()
-  const anecdotes = useSelector(state => state)
+  const anecdotes = useSelector(state => {
+    if (state.filter.length > 0) {
+      return state.anecdotes.filter(anecdote =>
+        anecdote.content.toLowerCase().includes(state.filter.toLowerCase())
+      )
+    }
+    return state.anecdotes
+  })
 
   const vote = (id) => {
     dispatch({
@@ -28,4 +35,4 @@ const AnecdoteList = () => {
   )
 }
 
-export default AnecdoteList
+export default Anecdotes
