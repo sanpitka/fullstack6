@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import anecdoteReducer, { newAnecdote, vote } from './reducers/anecdoteReducer'
+import anecdoteReducer, { createAnecdote, voteAnecdote } from './reducers/anecdoteReducer'
 import filterReducer from './reducers/filterReducer'
 import notificationReducer from './reducers/notificationReducer'
 
