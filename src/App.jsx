@@ -1,26 +1,35 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import AnecdoteForm from './components/AnecdoteForm'
-import Anecdotes from './components/Anecdotes'
-import Filter from './components/Filter'
 import Notification from './components/Notification'
-import { initializeAnecdotes } from './reducers/anecdoteReducer'
 
 const App = () => {
+  const handleVote = (anecdote) => {
+    console.log('vote')
+  }
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(initializeAnecdotes())
-  }, [dispatch])
+  const anecdotes = [
+    {
+      content: 'If it hurts, do it more often',
+      id: '47145',
+      votes: 0,
+    },
+  ]
 
   return (
     <div>
-      <h2>Anecdotes</h2>
+      <h3>Anecdote app</h3>
+
       <Notification />
-      <Filter />
-      <Anecdotes />
       <AnecdoteForm />
+
+      {anecdotes.map((anecdote) => (
+        <div key={anecdote.id}>
+          <div>{anecdote.content}</div>
+          <div>
+            has {anecdote.votes}
+            <button onClick={() => handleVote(anecdote)}>vote</button>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
