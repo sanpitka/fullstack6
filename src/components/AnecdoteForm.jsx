@@ -18,6 +18,12 @@ const AnecdoteForm = () => {
         notificationDispatch({ type: 'CLEAR' })
       }, 5000)
     },
+    onError: () => {
+      notificationDispatch({ type: 'SET', payload: 'Error in adding new anecdote: anecdote must be at least 5 characters long!' })
+      setTimeout(() => {
+        notificationDispatch({ type: 'CLEAR' })
+      }, 5000)
+    },
   })
 
   const onCreate = (event) => {
